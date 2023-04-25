@@ -26,6 +26,7 @@ public class ActionEpisodeNegativeTest extends BaseTest {
 
         assertThat(episodeByNumber.getStatusCode()).isEqualTo(HttpStatus.SC_NOT_FOUND);
 
-        assertThat(episodeByNumber.getBody().as(ResponseNotFound.class)).isEqualTo(EXPECTED_RESPONSE);
+        assertThat(episodeByNumber.getBody().as(ResponseNotFound.class))
+                .isEqualTo(EXPECTED_RESPONSE);
     }
 }
