@@ -8,10 +8,6 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class RestClient {
-    private Response response;
-    private int statusCode;
-    private String body;
-
     public RestClient() {
         RestAssured.baseURI = ConfigReader.getValue(ConfigEnum.API_URL);
     }
@@ -26,22 +22,10 @@ public class RestClient {
                 .as(asClass)[0];
     }
 
-    public void sendGet(String url) {
-        response = RestAssured.given()
+    public Response sendGet(String url) {
+        return RestAssured.given()
                 .when()
                 .get(url);
-    }
-
-    public int getStatusCode() {
-        statusCode = response.getStatusCode();
-        log.info(String.format("Status code: %s", statusCode));
-        return statusCode;
-    }
-
-    public String getBody() {
-        body = response.getBody().asString();
-        log.info(String.format("Body is %s", body));
-        return body;
     }
 
     public void closeClient() {

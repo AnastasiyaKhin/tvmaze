@@ -9,11 +9,9 @@ public class PersonAPIHandler {
     public PersonAPIHandler() {
         client = new RestClient();
     }
-
     public Person getAPIPerson(String personNameAndSurname) {
         String url = String.format("/search/people?q=%s", personNameAndSurname);
         SearchPeople searchPeople = client.sendGetArray(url, SearchPeople[].class);
         return searchPeople != null ? searchPeople.getPerson() : null;
     }
 }
-

@@ -34,18 +34,6 @@ public class TVShowValidationUtils {
         return tvShowList;
     }
 
-    public static TVShow createTVShow(String body) {
-        ObjectMapper mapper = new ObjectMapper();
-        TVShow tvShow = null;
-        try {
-            tvShow = mapper.readValue(body, TVShow.class);
-        } catch (JsonProcessingException e) {
-            log.error("Error while processing JSON: " + e.getMessage());
-        }
-        log.info(String.format("TVShow: %s", tvShow));
-        return tvShow;
-    }
-
     public static boolean isArrayOfShowsValid(String body) {
         ObjectMapper mapper = new ObjectMapper();
         try {

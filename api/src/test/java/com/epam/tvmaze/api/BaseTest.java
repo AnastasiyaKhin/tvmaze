@@ -1,19 +1,20 @@
 package com.epam.tvmaze.api;
 
-import com.epam.tvmaze.specifications.RestClient;
+import com.epam.tvmaze.utils.ConfigEnum;
+import com.epam.tvmaze.utils.ConfigReader;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
-    protected static RestClient client;
-
     @BeforeClass
     public static void setUp() {
-        client = new RestClient();
+        RestAssured.requestSpecification = new RequestSpecBuilder().setBaseUri(ConfigReader.getValue(ConfigEnum.API_URL)).build();
     }
 
     @AfterClass
     public static void tearDown() {
-        client.closeClient();
+        RestAssured.reset();
     }
 }
