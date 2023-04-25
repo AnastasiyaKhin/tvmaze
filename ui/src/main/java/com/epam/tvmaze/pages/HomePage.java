@@ -17,6 +17,8 @@ public class HomePage extends AbstractPage {
     private WebElement linkPerson;
     @FindBy(xpath = "//div[@id='header-menu']//a[@href='/shows']")
     private WebElement labelShows;
+    @FindBy(xpath = "//div[@id='header-menu']//a[@href='/shows']")
+    private WebElement labelPeople;
 
     public HomePage openPage() {
         driver.navigate().to(ConfigReader.getValue(ConfigEnum.BASE_URL));
@@ -43,5 +45,10 @@ public class HomePage extends AbstractPage {
     public ShowsPage clickLinkShows() {
         labelShows.click();
         return new ShowsPage();
+    }
+
+    public PeoplePage clickPeoplePageLink() {
+        labelPeople.click();
+        return new PeoplePage();
     }
 }

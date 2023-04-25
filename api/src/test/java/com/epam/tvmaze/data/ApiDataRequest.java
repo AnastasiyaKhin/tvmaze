@@ -23,4 +23,13 @@ public class ApiDataRequest {
                 {RandomData.generateRandomStringLettersAndNumbers()}
         };
     }
+
+    @DataProvider(name = "People with valid data")
+    public static Object[][] provideValidPeopleNameAndSurname() {
+        return new Object[][]{
+                {"Katee Sackhoff"},
+                {"Amy Acker"},
+                {"Morena Baccarin"}
+        };
+    }
 }
