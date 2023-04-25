@@ -1,6 +1,7 @@
 package com.epam.tvmaze.api;
 
 import com.epam.tvmaze.data.ApiDataRequest;
+import com.epam.tvmaze.pojo.response.ResponseNotFound;
 import com.epam.tvmaze.pojo.show.TVShow;
 import com.epam.tvmaze.specifications.EpisodeClient;
 import com.epam.tvmaze.specifications.SingleSearchClient;
@@ -12,7 +13,7 @@ import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ActionEpisodeNegativeTest extends BaseTest {
-    private final String EXPECTED_RESPONSE = "{\"name\":\"Not Found\",\"message\":\"Unknown episode\",\"code\":0,\"status\":404}";
+    private final ResponseNotFound EXPECTED_RESPONSE = new ResponseNotFound("Not Found", "Unknown episode", 0, 404);
 
     @Test(dataProvider = "tvShowNameValid", dataProviderClass = ApiDataRequest.class)
     public void testEpisodeActions(String tvShowName) {
@@ -25,6 +26,6 @@ public class ActionEpisodeNegativeTest extends BaseTest {
 
         assertThat(episodeByNumber.getStatusCode()).isEqualTo(HttpStatus.SC_NOT_FOUND);
 
-        assertThat(episodeByNumber.getBody().asString()).isEqualTo(EXPECTED_RESPONSE);
+        assertThat(episodeByNumber.getBody().as(ResponseNotFound.class)).isEqualTo(EXPECTED_RESPONSE);
     }
 }
