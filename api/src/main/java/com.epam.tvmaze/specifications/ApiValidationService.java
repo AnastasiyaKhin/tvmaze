@@ -4,7 +4,7 @@ import com.epam.tvmaze.utils.EpisodeValidationUtil;
 import com.epam.tvmaze.utils.PeopleValidationUtil;
 import com.epam.tvmaze.utils.TVShowValidationUtils;
 
-public class TVShowValidationService {
+public class ApiValidationService {
     public boolean isArrayOfShowsValid(String body) {
         return TVShowValidationUtils.isArrayOfShowsValid(body);
     }

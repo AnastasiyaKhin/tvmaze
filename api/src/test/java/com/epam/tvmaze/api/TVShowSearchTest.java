@@ -1,9 +1,9 @@
 package com.epam.tvmaze.api;
 
+import com.epam.tvmaze.client.ShowSearchClient;
 import com.epam.tvmaze.data.ApiDataRequest;
 import com.epam.tvmaze.pojo.show.TVShow;
-import com.epam.tvmaze.specifications.ShowSearchClient;
-import com.epam.tvmaze.specifications.TVShowValidationService;
+import com.epam.tvmaze.specifications.ApiValidationService;
 import com.epam.tvmaze.utils.TVShowValidationUtils;
 import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
@@ -30,9 +30,9 @@ public class TVShowSearchTest extends BaseTest {
                 .as("Response should contain TV show with name %s", tvShowPartOfName)
                 .isNotEmpty();
 
-        TVShowValidationService tvShowValidationService = new TVShowValidationService();
+        ApiValidationService apiValidationService = new ApiValidationService();
 
-        assertThat(tvShowValidationService.isArrayOfShowsValid(showSearchClient.getBody().asString()))
+        assertThat(apiValidationService.isArrayOfShowsValid(showSearchClient.getBody().asString()))
                 .as("Response should be valid")
                 .isTrue();
     }

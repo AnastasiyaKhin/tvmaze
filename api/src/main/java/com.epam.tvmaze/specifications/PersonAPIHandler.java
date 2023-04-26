@@ -1,5 +1,6 @@
 package com.epam.tvmaze.specifications;
 
+import com.epam.tvmaze.client.RestClient;
 import com.epam.tvmaze.pojo.person.Person;
 import com.epam.tvmaze.pojo.person.SearchPeople;
 

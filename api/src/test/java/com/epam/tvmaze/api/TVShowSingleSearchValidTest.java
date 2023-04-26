@@ -1,9 +1,9 @@
 package com.epam.tvmaze.api;
 
+import com.epam.tvmaze.client.SingleSearchClient;
 import com.epam.tvmaze.data.ApiDataRequest;
 import com.epam.tvmaze.pojo.show.TVShow;
-import com.epam.tvmaze.specifications.SingleSearchClient;
-import com.epam.tvmaze.specifications.TVShowValidationService;
+import com.epam.tvmaze.specifications.ApiValidationService;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
@@ -23,8 +23,8 @@ public class TVShowSingleSearchValidTest extends BaseTest {
                 .as("Response should contain TV show with name %s", tvShowName)
                 .isEqualTo(tvShowName);
 
-        TVShowValidationService tvShowValidationService = new TVShowValidationService();
-        assertThat(tvShowValidationService.isValidSingleSearchShowApiResponse(singleSearch.getBody().asString()))
+        ApiValidationService apiValidationService = new ApiValidationService();
+        assertThat(apiValidationService.isValidSingleSearchShowApiResponse(singleSearch.getBody().asString()))
                 .as("Response should be valid")
                 .isTrue();
     }

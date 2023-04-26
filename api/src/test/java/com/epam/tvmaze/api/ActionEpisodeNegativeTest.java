@@ -1,10 +1,10 @@
 package com.epam.tvmaze.api;
 
+import com.epam.tvmaze.client.EpisodeClient;
+import com.epam.tvmaze.client.SingleSearchClient;
 import com.epam.tvmaze.data.ApiDataRequest;
 import com.epam.tvmaze.pojo.response.ResponseNotFound;
 import com.epam.tvmaze.pojo.show.TVShow;
-import com.epam.tvmaze.specifications.EpisodeClient;
-import com.epam.tvmaze.specifications.SingleSearchClient;
 import com.epam.tvmaze.utils.RandomData;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;

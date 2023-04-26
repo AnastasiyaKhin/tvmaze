@@ -1,4 +1,4 @@
-package com.epam.tvmaze.specifications;
+package com.epam.tvmaze.client;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;

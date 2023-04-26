@@ -1,10 +1,10 @@
 package com.epam.tvmaze.api;
 
+import com.epam.tvmaze.client.EpisodeClient;
+import com.epam.tvmaze.client.SingleSearchClient;
 import com.epam.tvmaze.data.ApiDataRequest;
 import com.epam.tvmaze.pojo.show.TVShow;
-import com.epam.tvmaze.specifications.EpisodeClient;
-import com.epam.tvmaze.specifications.SingleSearchClient;
-import com.epam.tvmaze.specifications.TVShowValidationService;
+import com.epam.tvmaze.specifications.ApiValidationService;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
@@ -23,9 +23,9 @@ public class ActionsEpisodeValidTest extends BaseTest {
 
         assertThat(episodeByNumber.getStatusCode()).isEqualTo(HttpStatus.SC_OK);
 
-        TVShowValidationService tvShowValidationService = new TVShowValidationService();
+        ApiValidationService apiValidationService = new ApiValidationService();
 
-        assertThat(tvShowValidationService.isValidEpisodeApiResponse(episodeByNumber.getBody().asString()))
+        assertThat(apiValidationService.isValidEpisodeApiResponse(episodeByNumber.getBody().asString()))
                 .as("Response should be valid").isTrue();
     }
 }

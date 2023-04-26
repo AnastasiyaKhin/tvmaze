@@ -1,4 +1,4 @@
-package com.epam.tvmaze.specifications;
+package com.epam.tvmaze.client;
 
 import com.epam.tvmaze.utils.ConfigEnum;
 import com.epam.tvmaze.utils.ConfigReader;
