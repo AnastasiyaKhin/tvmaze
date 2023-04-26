@@ -2,9 +2,9 @@ package com.epam.tvmaze.api;
 
 import com.epam.tvmaze.data.ApiDataRequest;
 import com.epam.tvmaze.pojo.person.Person;
+import com.epam.tvmaze.specifications.ApiValidationService;
 import com.epam.tvmaze.specifications.PeopleClient;
 import com.epam.tvmaze.specifications.PersonAPIHandler;
-import com.epam.tvmaze.specifications.TVShowValidationService;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
@@ -22,7 +22,7 @@ public class ActionPeopleValidTest extends BaseTest {
         Response peopleById = new PeopleClient().getPeople(personId);
         assertThat(peopleById.getStatusCode()).isEqualTo(HttpStatus.SC_OK);
 
-        TVShowValidationService tvShowValidationService = new TVShowValidationService();
+        ApiValidationService tvShowValidationService = new ApiValidationService();
         assertThat(tvShowValidationService.isValidPeopleApiResponse(peopleById.getBody().asString()))
                 .as("Response should be valid").isTrue();
     }
