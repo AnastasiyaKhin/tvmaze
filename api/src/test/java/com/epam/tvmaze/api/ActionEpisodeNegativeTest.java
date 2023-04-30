@@ -20,6 +20,7 @@ public class ActionEpisodeNegativeTest extends BaseTest {
         Response singleSearch = new SingleSearchClient().getSingleSearch(tvShowName);
         TVShow tvShow = singleSearch.getBody().as(TVShow.class);
         int showID = tvShow.getId();
+
         int incorrectEpisodeID = Integer.parseInt(RandomData.generateNumbers());
 
         Response episodeByNumber = new EpisodeClient().getEpisode(showID, 1, incorrectEpisodeID);

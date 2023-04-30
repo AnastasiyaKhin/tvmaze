@@ -16,7 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Log4j2
 public class TVShowSearchTest extends BaseTest {
-    @Test(description = "API Search test with part of show name", dataProvider = "partOfName", dataProviderClass = ApiDataRequest.class)
+    @Test(description = "API Search test with part of show name", dataProvider = "partOfName",
+            dataProviderClass = ApiDataRequest.class)
     public void testGetSearchResponseContainsTVShow(String tvShowPartOfName) {
         Response showSearchClient = new ShowSearchClient().getShowSearch(tvShowPartOfName);
 

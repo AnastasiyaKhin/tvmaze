@@ -32,4 +32,23 @@ public class ApiDataRequest {
                 {"Morena Baccarin"}
         };
     }
+
+    @DataProvider(name = "calendarDateAndTVShowName")
+    public static Object[][] provideDateAndName() {
+        return new Object[][]{
+                {"2022-05-25", "The Flash"},
+                {"2022-04-07", "Walker"},
+                {"2022-06-12", "Barry"}
+        };
+    }
+
+    @DataProvider(name = "incorrectCalendarDate")
+    public static Object[][] provideDate() {
+        return new Object[][]{
+                {" "},
+                {"30025-01-05"},
+                {"2023-13-01"},
+                {"2022-05-42"}
+        };
+    }
 }
