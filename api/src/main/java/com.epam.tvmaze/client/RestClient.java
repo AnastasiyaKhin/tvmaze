@@ -27,8 +27,4 @@ public class RestClient {
                 .when()
                 .get(url);
     }
-
-    public void closeClient() {
-        RestAssured.reset();
-    }
 }

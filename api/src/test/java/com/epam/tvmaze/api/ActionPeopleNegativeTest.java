@@ -1,7 +1,7 @@
 package com.epam.tvmaze.api;
 
+import com.epam.tvmaze.client.PeopleClient;
 import com.epam.tvmaze.pojo.response.ResponseNotFound;
-import com.epam.tvmaze.specifications.PeopleClient;
 import com.epam.tvmaze.utils.RandomData;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;

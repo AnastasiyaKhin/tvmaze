@@ -1,9 +1,9 @@
 package com.epam.tvmaze.api;
 
+import com.epam.tvmaze.client.PeopleClient;
 import com.epam.tvmaze.data.ApiDataRequest;
 import com.epam.tvmaze.pojo.person.Person;
 import com.epam.tvmaze.specifications.ApiValidationService;
-import com.epam.tvmaze.specifications.PeopleClient;
 import com.epam.tvmaze.specifications.PersonAPIHandler;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
